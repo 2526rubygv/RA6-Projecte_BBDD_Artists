@@ -146,6 +146,69 @@ app.post("/api/canciones", (req, res) => {
   });
 });
 
+app.post("/api/DeleteArtist", (req, res) => {
+  const id = req.body.id;
+
+  db.run("DELETE FROM artists WHERE id = ?", [id], (error) => {
+    if (error) {
+      return res.status(500).send(`Error: ${error.message}`);
+    }
+    res.send(`Artista eliminat (ID: ${id})`);
+  });
+});
+
+app.post("/api/UpdateArtist", (req, res) => {
+  const { id, newName } = req.body;
+
+  if (!id || !newName) {
+    return res.status(400).send("Falten dades: id o newName");
+  }
+
+  db.run("UPDATE artists SET name = ? WHERE id = ?", [newName, id], (error) => {
+    if (error) {
+      return res.status(500).send(`Error: ${error.message}`);
+    }
+    res.send(`Artista modificat (ID: ${id}) → Nou nom: ${newName}`);
+  });
+});
+
+app.post("/api/DeleteCancion", (req, res) => {
+  const id = req.body.id;
+
+  db.run("DELETE FROM cancion WHERE id = ?", [id], (error) => {
+    if (error) {
+      return res.status(500).send(`Error: ${error.message}`);
+    }
+    res.send(`Cancion eliminada (ID: ${id})`);
+  });
+});
+
+app.post("/api/albumsByArtist", (req, res) => {
+  const artist_id = req.body.artist_id;
+
+  db.all(
+    "SELECT id, title FROM albums WHERE artist_id = ? ORDER BY id DESC",
+    [artist_id],
+    (err, rows) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      res.json({ result: rows });
+    }
+  );
+});
+
+app.post("/api/DeleteAlbum", (req, res) => {
+  const id = req.body.id;
+
+  db.run("DELETE FROM albums WHERE id = ?", [id], (error) => {
+    if (error) {
+      return res.status(500).send(`Error: ${error.message}`);
+    }
+    res.send(`Àlbum eliminat (ID: ${id})`);
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Servidor a http://localhost:${PORT}`);
   console.log(`Base de dades SQLite: ${dbPath}`);

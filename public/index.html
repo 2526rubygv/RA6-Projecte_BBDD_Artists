@@ -9,9 +9,9 @@
 <body>
   <main>
     <section class="card">
-      <h1>Exemple b�sic: SQLite3 amb Node</h1>
-      <p>Aquest exemple nom�s treballa amb artistes.</p>
-      <p>Si la base de dades est� buida, es creen dos artistes inicials.</p>
+      <h1>Exemple basic: SQLite3 amb Node</h1>
+      <p>Aquest exemple nomes treballa amb artistes.</p>
+      <p>Si la base de dades esta buida, es creen dos artistes inicials.</p>
     </section>
 
     <section class="card">
@@ -33,6 +33,101 @@
         <button id="load-btn" type="button" class="btn-small">Carregar artistes</button>
       </div>
       <p id="artist-output">Prem "Carregar artistes" per veure dades.</p>
+    </section>
+
+    <section class="card">
+      <h2>3) Modificar artista</h2>
+
+      <div>
+        <label for="update-artist-id">Selecciona artista</label>
+        <select id="update-artist-id"></select>
+      </div>
+
+      <div>
+        <label for="update-artist-name">Nou nom</label>
+        <input id="update-artist-name" required />
+      </div>
+
+      <button id="update-artist-btn" type="button">Modificar</button>
+
+      <p id="update-artist-output"></p>
+    </section>
+
+    <section class="card">
+      <h2>4) Eliminar artista</h2>
+
+      <div> 
+        <label for="delete-id">Selecciona artista</label>
+        <select id="delete-id"></select>
+      </div> 
+      <div>
+        <button id="delete-btn" type="button">Eliminar Artista</button>
+      </div>
+      <p id="delete-output"></p>
+    </section>
+
+    <section class="card">
+      <h2>5) Afegir cançó</h2>
+
+      <div>
+        <label for="cancion-artist-id">Selecciona artista</label>
+        <select id="cancion-artist-id"></select>
+      </div>
+
+      <div>
+        <label for="cancion-album-id">Selecciona àlbum</label>
+        <select id="cancion-album-id"></select>
+      </div>
+
+      <div>
+        <label for="cancion-name">Nom de la cançó</label>
+        <input id="cancion-name" required />
+      </div>
+
+      <button id="add-cancion-btn" type="button">Desar cançó</button>
+
+      <p id="add-cancion-output"></p>
+    </section>
+
+
+    <section class="card">
+      <h2>6) Eliminar cançó</h2>
+
+      <label for="delete-cancion-id">Selecciona cançó</label>
+      <select id="delete-cancion-id"></select>
+
+      <button id="delete-cancion-btn" type="button">Eliminar</button>
+
+      <p id="delete-cancion-output"></p>
+    </section>
+
+    <section class="card">
+      <h2>7) Afegir àlbum</h2>
+
+      <div>
+        <label for="album-artist-id">Selecciona artista</label>
+        <select id="album-artist-id"></select>
+      </div>
+
+      <div>
+        <label for="album-name">Nom de l'àlbum</label>
+        <input id="album-name" required />
+      </div>
+
+      <button id="add-album-btn" type="button">Desar àlbum</button>
+
+      <p id="add-album-output"></p>
+    </section>
+
+    <section class="card">
+      <h2>8) Eliminar àlbum</h2>
+
+      <label for="delete-album-id">Selecciona àlbum</label>
+      <select id="delete-album-id"></select>
+
+      <button id="delete-album-btn" type="button">Eliminar</button>
+
+      <p id="delete-album-output"></p>
     </section>
   </main>
 
